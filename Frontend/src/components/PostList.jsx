@@ -11,7 +11,9 @@ const PostList = () => {
   // Fetch posts when the component mounts and after any changes
   const fetchPosts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/posts/all-post");
+      const res = await axios.get(
+        "https://post-crud-backend.onrender.com/api/posts/all-post"
+      );
       setPosts(res.data);
     } catch (err) {
       console.error("Error fetching posts:", err);
@@ -25,7 +27,9 @@ const PostList = () => {
   // Handle deleting a post
   const handleDelete = async (postId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/posts/${postId}`);
+      await axios.delete(
+        `https://post-crud-backend.onrender.com/api/posts/${postId}`
+      );
       setPosts(posts.filter((post) => post._id !== postId)); // Update state
     } catch (err) {
       console.error("Error deleting post:", err);
@@ -52,7 +56,7 @@ const PostList = () => {
 
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/posts/${editingPost._id}`,
+        `https://post-crud-backend.onrender.com/api/posts/${editingPost._id}`,
         formData
       );
       setPosts(

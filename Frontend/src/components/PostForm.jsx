@@ -17,7 +17,10 @@ const PostForm = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/api/posts", formData);
+      const res = await axios.post(
+        "https://post-crud-backend.onrender.com/api/posts",
+        formData
+      );
       console.log(res.data);
       // Reset the form after successful submission
       setTitle("");
